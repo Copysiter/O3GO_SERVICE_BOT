@@ -23,10 +23,8 @@ def start_scheduler(bot: TeleBot):
 
         response = requests.get(
             O3GO_API_ADDR, params={
-                # 'begin': begin.strftime('%Y-%m-%d %H:%M:%S'),
-                # 'end': end.strftime('%Y-%m-%d %H:%M:%S')
-                'begin': '2024-07-13 13:00:00',
-                'end': '2024-07-13 17:00:00'
+                'begin': begin.strftime('%Y-%m-%d %H:%M:%S'),
+                'end': end.strftime('%Y-%m-%d %H:%M:%S')
             }
         ).json()
         data = response['data']
@@ -53,8 +51,8 @@ def start_scheduler(bot: TeleBot):
     scheduler = BackgroundScheduler({'apscheduler.timezone': 'UTC'})
 
     scheduler.add_job(
-        send_user_report, trigger="cron", month="*", day="*",
-        hour="*", minute="*/1"
+        send_user_report, trigger='cron', month='*',
+        day='*', hour='*', minute='1'
     )
 
     scheduler.start()
