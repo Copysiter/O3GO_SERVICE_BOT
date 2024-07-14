@@ -1,0 +1,4 @@
+telebot==0.0.5
+pony==0.7.17
+prettytable==3.10.0
+apscheduler==3.10.4
