@@ -18,8 +18,8 @@ from db import *
 
 def start_scheduler(bot: TeleBot):
     def send_user_report():
-        begin = datetime.utcnow().replace(minute=0, second=0, microsecond=0)
-        end = begin - timedelta(hours=1)
+        end = datetime.utcnow().replace(minute=0, second=0, microsecond=0)
+        begin = end - timedelta(hours=1)
 
         response = requests.get(
             O3GO_API_ADDR, params={
